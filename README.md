@@ -1,7 +1,7 @@
 # ProjectX
 这是一个简单的爬虫，可以从http://china.caixin.com/anticorruption-list/ 爬取内容
 
-# 执行爬虫程序：
+## 执行爬虫程序：
   在**ProjectX**文件夹下，执行命令
     ```scrapy crawl caixins```
   爬取的结果会被存入文件 **caixins.csv**
