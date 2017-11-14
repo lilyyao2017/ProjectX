@@ -31,11 +31,13 @@ class CaixinSpider(scrapy.Spider):
     'inspect element' in a browser.
     """        
     
-    # Output file to save the results
+    # Output file to save the results, i.e. caixins.csv
     filepath = CaixinSpider.name + '.csv'
-    separator = '|'  # use '|' as the separator
-    # Open the file in 'appending' mode. If the file does not exist, write 
-    # element titles in the first line.
+    separator = '|'  # use '|' as the separator of columns
+
+    # Open a output file in 'appending' mode. 
+    # If the file already exists, append new content to the end of the file;
+    # otherwise create a new file and write the first title line.
     if os.path.isfile(filepath):
       ofile = open(filepath, 'a+')
       writer = csv.writer(ofile, delimiter=separator)
@@ -69,15 +71,6 @@ class CaixinSpider(scrapy.Spider):
       
       # Write this item into the file
       writer.writerow([title, date, description, link])    
-      #ofile.write(title)
-      #ofile.write(separator)
-      #ofile.write(date)
-      #ofile.write(separator)
-      #ofile.write(description)
-      #ofile.write(separator)
-      #ofile.write(link)
-      #ofile.write(separator)
-      #ofile.write('\n') # newline
     
     ofile.close()
 
